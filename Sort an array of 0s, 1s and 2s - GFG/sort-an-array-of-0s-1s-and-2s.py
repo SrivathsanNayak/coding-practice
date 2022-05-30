@@ -2,11 +2,7 @@
 
 class Solution:
     def sort012(self,arr,n):
-        zeroCount = arr.count(0)
-        oneCount = arr.count(1)
-        twoCount = n - zeroCount - oneCount
-        arr.clear()
-        arr.extend([0] * zeroCount + [1] * oneCount + [2] * twoCount)
+        arr.sort()
 
 
 #{ 
