@@ -1,10 +1,11 @@
 #User function Template for python3
 
-from math import factorial as fact
-
 class Solution:
     def factorial(self, N):
-        return str(fact(N))
+        f = 1
+        for i in range(1, N+1):
+            f *= i
+        return str(f)
 
 #{ 
 #  Driver Code Starts
