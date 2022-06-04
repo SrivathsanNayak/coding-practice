@@ -2,12 +2,19 @@
 
 class Solution:
     def segregateElements(self, arr, n):
-        neg = [i for i in arr if i < 0]
-        pos = [i for i in arr if i > 0]
-        arr.clear()
-        arr.extend(pos)
-        arr.extend(neg)
-                
+        j = 0
+        temp = [None] * n
+        for i in range(n):
+            if arr[i] > 0:
+                temp[j] = arr[i]
+                j += 1
+        for i in range(n):
+            if arr[i] < 0:
+                temp[j] = arr[i]
+                j += 1
+        for i in range(n):
+            arr[i] = temp[i]
+        
 
 #{ 
 #  Driver Code Starts
