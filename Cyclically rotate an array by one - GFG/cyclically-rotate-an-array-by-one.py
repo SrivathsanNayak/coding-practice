@@ -1,9 +1,9 @@
 #User function Template for python3
 
 def rotate( arr, n):
-    rot = arr[(n-1):] + arr[:(n-1)]
-    arr.clear()
-    arr.extend(rot)
+    arr[:] = arr[-1:] + arr[:-1]
+    #start with last element
+    #end with all elements before last element
 
 #{ 
 #  Driver Code Starts
