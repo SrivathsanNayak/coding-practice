@@ -11,26 +11,9 @@ class Solution(object):
         :rtype: int
         """
         
-        levels = 0
-        
         if not root:
             return 0
         
-        q = collections.deque()
-        q.append(root)
-        
-        while q:
-            l = []
-            for i in range(len(q)):
-                node = q.popleft()
-                if node:
-                    l.append(node.val)
-                    q.append(node.left)
-                    q.append(node.right)
-            
-            if l:
-                levels += 1
-        
-        return levels
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
             
         
