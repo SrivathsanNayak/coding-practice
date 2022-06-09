@@ -12,16 +12,11 @@ class Solution(object):
         :rtype: bool
         """
         
-        def dfsSum(node, curSum):
-            
-            if not node:
-                return False
-            
-            curSum += node.val
-            
-            if not node.left and not node.right:
-                return curSum == targetSum
-            
-            return (dfsSum(node.left, curSum) or dfsSum(node.right, curSum))
+        if not root:
+            return False
         
-        return dfsSum(root, 0)
+        if not root.left and not root.right:
+            return root.val == targetSum
+        
+        return (self.hasPathSum(root.left, targetSum - root.val) or self.hasPathSum(root.right, targetSum - root.val))
+        
