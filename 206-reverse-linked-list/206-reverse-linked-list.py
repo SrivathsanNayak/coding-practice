@@ -9,15 +9,8 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        prev = None
-        curr = head
+        curr, prev = head, None
         while curr:
-            nextNode = curr.next
-            curr.next = prev #first node points to None
-            #other nodes will point to their previous element
-            
-            prev = curr #updating prev element
-            curr = nextNode #updating curr element
-        
-        return prev    
+            curr.next, curr, prev = prev, curr.next, curr
+        return prev
         
