@@ -5,23 +5,21 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        def binarySearch(nums, low, high, target):
+        low = 0
+        high = len(nums) - 1
+        mid = 0
+        
+        while low <= high:
             
-            if high >= low:
-                
-                mid = (low + high) // 2
-                
-                if nums[mid] == target:
-                    return mid
-                
-                elif nums[mid] > target:
-                    return binarySearch(nums, low, mid - 1, target)
-                
-                elif nums[mid] < target:
-                    return binarySearch(nums, mid + 1, high, target)
-                
-            else:
-                
-                return -1
+            mid = (low + high) // 2
             
-        return binarySearch(nums, 0, len(nums) - 1, target)
+            if nums[mid] == target:
+                return mid
+            
+            elif nums[mid] > target:
+                high = mid - 1    
+                
+            elif nums[mid] < target:
+                low = mid + 1
+                
+        return -1
