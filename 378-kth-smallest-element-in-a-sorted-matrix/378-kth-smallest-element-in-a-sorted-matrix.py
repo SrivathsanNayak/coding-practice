@@ -5,9 +5,18 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        tmp = []
-        for i in matrix:
-            tmp.extend(i)
-        tmp.sort()
-        return tmp[k - 1]
-            
+        l, r, n = matrix[0][0], matrix[-1][-1], len(matrix)
+        
+        def less_than_k(mid):
+            cnt = 0
+            for i in range(n):
+                cnt += bisect_right(matrix[i], mid)
+            return cnt
+        
+        while l < r:
+            mid = (l + r) // 2
+            if less_than_k(mid) < k:
+                l = mid + 1
+            else:
+                r = mid
+        return l
